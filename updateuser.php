@@ -1,45 +1,42 @@
 <?php
-// including the database connection file
 include_once("connection.php");
 
+if(!empty($data['userName'])){
 
-if(!empty($_POST['userName'])){
-
-	$userName = $_POST['userName'];
-
-}
-if(!empty($_POST['password'])){
-
-	$password = $_POST['password'];
+	$userName = $data['userName'];
 
 }
-if(!empty($_POST['name'])){
+if(!empty($data['password'])){
 
-	$name = $_POST['name'];
-
-}
-if(!empty($_POST['lastname'])){
-
-	$lastname = $_POST['lastname'];
+	$password = $data['password'];
 
 }
-if(!empty($_POST['mail'])){
+if(!empty($data['name'])){
 
-	$mail = $_POST['mail'];
+	$name = $data['name'];
 
 }
-if(!empty($_POST['location'])){
+if(!empty($data['lastname'])){
 
-	$location = $_POST['location'];
+	$lastname = $data['lastname'];
+
+}
+if(!empty($data['mail'])){
+
+	$mail = $data['mail'];
+
+}
+if(!empty($data['location'])){
+
+	$location = $data['location'];
 
 }
 		try{
-			
 			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE username=$userName");
 			$pdo->exec($result);
-			echo "Records was updated successfully.";
-		}catch{
-			die("ERROR: Could not able to execute $result. "
+			echo "Actualitzat.";
+		}catch (Exception $e){
+			die("El seguent error: $result. "
 			. $e->getMessage());
 		}
 		unset($pdo);
