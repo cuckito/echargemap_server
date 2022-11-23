@@ -10,6 +10,14 @@
 <?php
 ("connection.php");
 
+$username = $data['userName'];
+$password = $data['password'];
+$name = $data['name'];
+$lastname = $data['lastname'];
+$mail = $data['mail'];
+$location = $data['location'];
+
+
 $error = "";
 
 if(!empty($data['userName'])){
@@ -75,7 +83,7 @@ if(!empty($data['location'])){
 			
 		}
 	//echo "registeruser_ok";
-	echo json_encode(["registeruser" => true, "message" => "registeruser_ok"]);
+	echo json_encode(["registeruser" => true, "message" => "registeruser_ok","userName"=>$userName,"password"=>$password,"name"=>$name,"lastname"=>$lastname,"mail"=>$mail,"location"=>$location]);
 ?>
 </body>
 </html>
