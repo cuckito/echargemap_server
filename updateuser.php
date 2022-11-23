@@ -34,7 +34,8 @@ if(!empty($data['location'])){
 		try{
 			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE username=$userName");
 			$conn->exec($result);
-			echo "updateuser_ok";
+			//echo "updateuser_ok";
+			echo json_encode(["updateuser" => true, "message" => "updateuser_ok"]);
 		}catch (Exception $e){
 			die("updateuser_fail: $result. ". $e->getMessage());
 		}

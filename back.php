@@ -14,6 +14,7 @@ if($data['method']=='loginuser'){
 }else if($data['method']=='deluser'){
     include("deluser.php");
 }else{
-    echo "methoduser_fail";
+    //echo "methoduser_fail";
+    echo json_encode(["method" => false, "message" => "methoduser_fail"]);
 }
 ?>

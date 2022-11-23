@@ -4,11 +4,11 @@ session_start();
 require_once 'connection.php';
 
 #probar conexion a la base de datos
-if ($con->connect_error) {
+/*if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } else {
     echo "Connected successfully";
-}
+}*/
 
 
 

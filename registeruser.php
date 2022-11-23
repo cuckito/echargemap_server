@@ -7,13 +7,6 @@
 	}*/
 
 ?> 
-
-<html>
-<head>
-	<title>Register user</title>
-</head>
-
-<body>
 <?php
 ("connection.php");
 
@@ -77,10 +70,12 @@ if(!empty($data['location'])){
 			$error = $errorcheck . $error;
 		} else { 
 				
-			$result = mysqli_query($con, "INSERT INTO Users(user_id, username, password, name, lastname, mail, location, role) VALUES(null, '$username', md5('$password'), '$name', '$lastname', '$mail', '$location', 1)") 
+			$result = mysqli_query($con, "INSERT INTO Users(user_id, username, password, name, lastname, mail, location, role) VALUES(null, '$username', md5('$password'), '$name', '$lastname', '$mail', '$location', 1)")
 			or die("registeruser_fail");
+			
 		}
-	echo "registeruser_ok";
+	//echo "registeruser_ok";
+	echo json_encode(["registeruser" => true, "message" => "registeruser_ok"]);
 ?>
 </body>
 </html>
