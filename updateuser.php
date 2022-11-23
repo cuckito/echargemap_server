@@ -33,12 +33,11 @@ if(!empty($data['location'])){
 }
 		try{
 			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE username=$userName");
-			$pdo->exec($result);
-			echo "Actualitzat.";
+			$conn->exec($result);
+			echo "updateuser_ok";
 		}catch (Exception $e){
-			die("El seguent error: $result. "
-			. $e->getMessage());
+			die("updateuser_fail: $result. ". $e->getMessage());
 		}
-		unset($pdo);
+		unset($conn);
 ?>
 

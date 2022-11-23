@@ -15,7 +15,7 @@
 
 <body>
 <?php
-include_once("connection.php");
+("connection.php");
 
 $error = "";
 
@@ -77,9 +77,10 @@ if(!empty($data['location'])){
 			$error = $errorcheck . $error;
 		} else { 
 				
-			$result = mysqli_query($con, "INSERT INTO Users(user_id, username, password, name, lastname, mail, location, role) VALUES(null, '$username', md5('$password'), '$name', '$lastname', '$mail', '$location', 1)");
+			$result = mysqli_query($con, "INSERT INTO Users(user_id, username, password, name, lastname, mail, location, role) VALUES(null, '$username', md5('$password'), '$name', '$lastname', '$mail', '$location', 1)") 
+			or die("registeruser_fail");
 		}
-	echo "register_ok";
+	echo "registeruser_ok";
 ?>
 </body>
 </html>

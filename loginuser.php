@@ -6,7 +6,7 @@
 
 <body>
 <?php
-include("connection.php");
+include_once("connection.php");
 
 echo $data['method'];
 echo $data['userName'];
@@ -20,11 +20,11 @@ echo $data['password'];
 	$password = $data['password'];
 
 	if($password == "" || $userName == "") {
-		echo "Si username y password está vacio<";
+		echo "login_user_and_pass_empty";
 	} else {
 		echo $userName;
 		$result = mysqli_query($con, "SELECT * FROM Users WHERE username='$userName' AND password=md5('$password')")
-					or die("fallo_login");
+					or die("loginuser_fail");
 		
 		$row = mysqli_fetch_assoc($result);
 		
@@ -42,5 +42,5 @@ echo $data['password'];
 			header('Location: index.php');			
 		}*/
 	}
-	echo "login_ok";
+	echo "loginuser_ok";
 ?>
