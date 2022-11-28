@@ -76,6 +76,69 @@ require_once 'connection.php';
           echo "</table>";
           mysqli_close($con);        
     ?>
+    <?php
+    // Tabla: Stations
+    //Columns:	station_id	id	promotor_gestor	acces	tipus_velocitat	tipus_connexi	latitud	longitud	designaci_descriptiva	kw	ac_dc	adre_a	provincia	codiprov	municipi	nplaces_estaci	tipus_vehicle	geocoded_column	prices	
+    $con = mysqli_connect($host, $root, $password, $db);
+    if (!$con) {
+        die('Could not connect: ' . mysqli_error($con));
+    }
+    $sql = "SELECT * FROM Stations";
+    $select = mysqli_query($con, $sql);
+    $num_rows = mysqli_num_rows($select);
+    echo "Number of rows : ";
+    echo $num_rows;
+
+    echo "<table>
+    <tr>
+    <th>station_id</th>
+    <th>id</th>
+    <th>promotor_gestor</th>
+    <th>acces</th>
+    <th>tipus_velocitat</th>
+    <th>tipus_connexi</th>
+    <th>latitud</th>
+    <th>longitud</th>
+    <th>designaci_descriptiva</th>
+    <th>kw</th>
+    <th>ac_dc</th>
+    <th>adre_a</th>
+    <th>provincia</th>
+    <th>codiprov</th>
+    <th>municipi</th>
+    <th>nplaces_estaci</th>
+    <th>tipus_vehicle</th>
+    <th>geocoded_column</th>
+    <th>prices</th>
+    </tr>";
+    if($num_rows > 0) {
+        while($rows = mysqli_fetch_array($select, MYSQLI_ASSOC)) {
+            echo "<tr>";
+            echo "<td>" . $rows['station_id'] . "</td>";
+            echo "<td>" . $rows['id'] . "</td>";
+            echo "<td>" . $rows['promotor_gestor'] . "</td>";
+            echo "<td>" . $rows['acces'] . "</td>";
+            echo "<td>" . $rows['tipus_velocitat'] . "</td>";
+            echo "<td>" . $rows['tipus_connexi'] . "</td>";
+            echo "<td>" . $rows['latitud'] . "</td>";
+            echo "<td>" . $rows['longitud'] . "</td>";
+            echo "<td>" . $rows['designaci_descriptiva'] . "</td>";
+            echo "<td>" . $rows['kw'] . "</td>";
+            echo "<td>" . $rows['ac_dc'] . "</td>";
+            echo "<td>" . $rows['adre_a'] . "</td>";
+            echo "<td>" . $rows['provincia'] . "</td>";
+            echo "<td>" . $rows['codiprov'] . "</td>";
+            echo "<td>" . $rows['municipi'] . "</td>";
+            echo "<td>" . $rows['nplaces_estaci'] . "</td>";
+            echo "<td>" . $rows['tipus_vehicle'] . "</td>";
+            echo "<td>" . $rows['geocoded_column'] . "</td>";
+            echo "<td>" . $rows['prices'] . "</td>";
+            echo "</tr>";
+        }
+    }
+    echo "</table>";
+    mysqli_close($con);
+    ?>
 </div>
 </body>
 </html>
