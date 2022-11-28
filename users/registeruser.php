@@ -78,7 +78,7 @@ if(!empty($data['location'])){
 			$error = $errorcheck . $error;
 		} else { 
 				
-			$result = mysqli_query($con, "INSERT INTO Users(user_id, username, password, name, lastname, mail, location, role) VALUES(null, '$username', MD5('$password'), '$name', '$lastname', '$mail', '$location', 1)")
+			$result = mysqli_query($con, "INSERT INTO Users(user_id, username, password, name, lastname, mail, location, role) VALUES(null, '$username', md5('$password'), '$name', '$lastname', '$mail', '$location', 1)")
 			or die("registeruser_fail");
 			
 		}
