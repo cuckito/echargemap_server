@@ -2,18 +2,12 @@
 session_start();
 
 require_once 'connection.php';
-
 #probar conexion a la base de datos
 /*if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } else {
     echo "Connected successfully";
 }*/
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,8 +22,9 @@ require_once 'connection.php';
 <!-- The sidebar -->
 <div class="sidebar">
   <a class="active" href="#home">Admin panel</a>
-  <a href="" id="usuarios">Tabla Usuarios</a>
-  <a href="#contact">Tabla estacions</a>
+  <a href="usuaris.php" id="usuarios">Tabla usuarios</a>
+  <a href="estacions" id="estacions">Tabla estacions</a>
+  <a href="eliminar" id="eliminar">Eliminar</a>
   <a href="#about">About</a>
 </div>
 
@@ -111,8 +106,8 @@ require_once 'connection.php';
     <th>geocoded_column</th>
     <th>prices</th>
     </tr>";
-    if($num_rows > 0) {
-        while($rows = mysqli_fetch_array($select, MYSQLI_ASSOC)) {
+    if ($num_rows > 0) {
+        while ($rows = mysqli_fetch_array($select, MYSQLI_ASSOC)) {
             echo "<tr>";
             echo "<td>" . $rows['station_id'] . "</td>";
             echo "<td>" . $rows['id'] . "</td>";
@@ -136,6 +131,7 @@ require_once 'connection.php';
             echo "</tr>";
         }
     }
+
     echo "</table>";
     mysqli_close($con);
     ?>

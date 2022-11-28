@@ -38,9 +38,9 @@
 
                     if($row['role']==0){
                         echo "Ha entrado";
-                        header('Location: adpanel.php');
+                        header('Location: admin/adpanel.php');
                     }elseif($row['role']==1){
-                        header("location: profile.php");
+                        header("location: index.php");
                     }
                 }
             }else{
