@@ -40,5 +40,18 @@ if(!empty($data['location'])){
 			die("updateuser_fail: $result. ". $e->getMessage());
 		}
 		unset($conn);
+
+
+
+		/*
+		$result = mysqli_query($con, "SELECT * FROM Users WHERE username='$username'")
+		or die("readuser_fail");
+		$rows = array();
+		while($array = mysqli_fetch_assoc($result)) {
+			$rows[] = $array;
+		}
+		echo json_encode(["readuser" => true, "message" => "readuser_ok",$rows]);
+		*/
 ?>
+
 

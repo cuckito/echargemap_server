@@ -25,7 +25,8 @@
 		//echo "login_user_and_pass_empty";
 	} else {
 		//echo $userName;
-		$result = mysqli_query($con, "SELECT * FROM Users WHERE userName='$userName' AND password=md5('$password')");
+		$passEncrip=md5($password);
+		$result = mysqli_query($con, "SELECT * FROM Users WHERE username='$userName' AND password='$passEncrip'");
 		//$result = mysqli_query($con, "SELECT * FROM Users WHERE username='$userName' AND password=md5('$password')"); //PENDIENTE DE REGISTRO EN FRONT
 					//or die("loginuser_query_fail");
 		

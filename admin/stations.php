@@ -19,58 +19,32 @@ require_once 'connection.php';
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-<!-- The sidebar -->
+<!-- sidebar -->
 <div class="sidebar">
-  <a class="active" href="#home">Admin panel</a>
-  <a href="usuaris.php" id="usuarios">Tabla usuarios</a>
-  <a href="estacions" id="estacions">Tabla estacions</a>
-  <a href="eliminar" id="eliminar">Eliminar</a>
-  <a href="#about">About</a>
+  <a class="active" href="adpanel.php">Admin panel</a>
+  <a href="users.php" id="users">Visualizar usuarios</a>
+  <a href="stations.php" id="stations">Visualizar estacions</a>
+  <a href="logout.php" id="logout">Cerrar sesion</a>
 </div>
 
-<!-- Page content -->
+<!-- contenido -->
 <div class="content">
-  <?php
-          $con = mysqli_connect($host, $root, $password, $db);
-          if (!$con) {
-              die('Could not connect: ' . mysqli_error($con));
-          }
-
-          $sql = "SELECT * FROM Users";
-          $select = mysqli_query($con, $sql);
-          $num_rows = mysqli_num_rows($select);
-          echo "Number of rows : ";
-          echo $num_rows;
-
-          echo "<table>
-          <tr>
-          <th>user_id</th>
-          <th>User name</th>
-          <th>Password</th>
-          <th>name</th>
-          <th>lastname</th>
-          <th>mail</th>
-          <th>location</th>
-          <th>role</th>
-          </tr>";
-          if ($num_rows > 0) {
-
-              while ($rows = mysqli_fetch_array($select, MYSQLI_ASSOC)) {
-                  echo "<tr>";
-                  echo "<td>" . $rows['user_id'] . "</td>";
-                  echo "<td>" . $rows['username'] . "</td>";
-                  echo "<td>" . $rows['password'] . "</td>";
-                  echo "<td>" . $rows['name'] . "</td>";
-                  echo "<td>" . $rows['lastname'] . "</td>";
-                  echo "<td>" . $rows['mail'] . "</td>";
-                  echo "<td>" . $rows['location'] . "</td>";
-                  echo "<td>" . $rows['role'] . "</td>";
-                  echo "</tr>";
-              }
-          }
-          echo "</table>";
-          mysqli_close($con);        
+    <h2>Visualizar estaciones</h2>
+    <p>Introduce el id de la estacion que quieres borrar</p>
+    <form name='form' method="post">
+    <input type="text" name="stationid" />
+    <input type='submit' name='statdel' value='Delete station'><br>
+    </form>
+    <?php
+    if(isset($_POST['statdel']))
+    {
+        $stationid = $_POST['stationid'];
+        $sql = "DELETE FROM Stations WHERE station_id='$stationid'";
+        $result = mysqli_query ($con, $sql);
+        echo "<b>Se ha borrado la estacion: $stationid</b>";
+    }
     ?>
+    <br>
     <?php
     // Tabla: Stations
     //Columns:	station_id	id	promotor_gestor	acces	tipus_velocitat	tipus_connexi	latitud	longitud	designaci_descriptiva	kw	ac_dc	adre_a	provincia	codiprov	municipi	nplaces_estaci	tipus_vehicle	geocoded_column	prices	
@@ -81,8 +55,8 @@ require_once 'connection.php';
     $sql = "SELECT * FROM Stations";
     $select = mysqli_query($con, $sql);
     $num_rows = mysqli_num_rows($select);
-    echo "Number of rows : ";
-    echo $num_rows;
+    //echo "Number of rows : ";
+    //echo $num_rows;
 
     echo "<table>
     <tr>
@@ -131,7 +105,6 @@ require_once 'connection.php';
             echo "</tr>";
         }
     }
-
     echo "</table>";
     mysqli_close($con);
     ?>
