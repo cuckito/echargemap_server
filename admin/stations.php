@@ -77,7 +77,8 @@ require_once 'connection.php';
     <th>municipi</th>
     <th>nplaces_estaci</th>
     <th>tipus_vehicle</th>
-    <th>geocoded_column</th>
+    <th>ide_prd</th>
+    <th>codi_mun</th>
     <th>prices</th>
     </tr>";
     if ($num_rows > 0) {
@@ -100,7 +101,8 @@ require_once 'connection.php';
             echo "<td>" . $rows['municipi'] . "</td>";
             echo "<td>" . $rows['nplaces_estaci'] . "</td>";
             echo "<td>" . $rows['tipus_vehicle'] . "</td>";
-            echo "<td>" . $rows['geocoded_column'] . "</td>";
+            echo "<td>" . $rows['ide_prd'] . "</td>";
+            echo "<td>" . $rows['codi_mun'] . "</td>";
             echo "<td>" . $rows['prices'] . "</td>";
             echo "</tr>";
         }

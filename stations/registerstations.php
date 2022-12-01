@@ -207,10 +207,8 @@ if(!empty($data['adre_a'])){
 			$errorcheck = "Los siguientes campos están vacios";
 			$error = $errorcheck . $error;
 		} else { 
-				
 			$result = mysqli_query($con, "INSERT INTO Stations(municipi, provincia, station_id, id, codiprov, adre_a, promotor_gestor, acces, tipus_velocitat, tipus_connexi, latitud, longitud, designaci_descriptiva, ac_dc, nplaces_estaci, tipus_vehicle, geocoded_column, prices, kw) VALUES('$municipi', '$provincia', '$station_id', '$id', '$codiprov', '$adre_a', '$promotor_gestor', '$acces', '$tipus_velocitat', '$tipus_connexi', '$latitud', '$longitud', '$designaci_descriptiva', '$ac_dc', '$nplaces_estaci', '$tipus_vehicle', '$geocoded_column', '$prices', '$kw')")
 			or die("registerstations_fail");
-			
 		}
 	//echo "registeruser_ok";
 	echo json_encode(["registerstations" => true, "message" => "registerstations_ok","municipi"=>$municipi,"provincia"=>$provincia,"station_id"=>$station_id,"id"=>$id,"codiprov"=>$codiprov,"adre_a"=>$adre_a]);

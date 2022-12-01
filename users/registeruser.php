@@ -8,7 +8,7 @@
 
 ?> 
 <?php
-("connection.php");
+include_once("connection.php");
 
 $username = $data['userName'];
 $password = $data['password'];
