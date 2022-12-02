@@ -50,7 +50,7 @@ if(!empty($data['location'])){
 		}
 		unset($con);*/
 			
-			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE username=$userName")
+			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE mail=$mail")
 			or die("updateuser_fail");
 			echo json_encode(["updateuser" => true, "message" => "updateuser_ok"]);
 			//die("updateuser_fail: $result. ". $e->getMessage());
