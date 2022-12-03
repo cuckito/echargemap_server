@@ -61,8 +61,15 @@ if(!empty($data['prices'])){
 if(!empty($data['kw'])){
 	$kw = $data['kw'];
 }
+if(!empty($data['ide_pdr'])){
+	$ide_pdr = $data['ide_pdr'];
+}
+
+if(!empty($data['codi_mun'])){
+	$codi_mun = $data['codi_mun'];
+}
 		try{
-			$result = mysqli_query($con, "UPDATE Stations SET station_id='$station_id', municipi='$municipi', provincia='$provincia', id='$id', codiprov='$codi',adre_a='$adre_a',promotor_gestor='$promotor_gestor',acces='$acces',tipus_velocitat='$tipus_velocitat',tipus_connexi='$tipus_connexi',latitud='$latitud',longitud='$longitud',designaci_descriptiva='$designaci_descriptiva',ac_dc='$ac_dc',nplaces_estaci='$nplaces_estaci',tipus_vehicle='$tipus_vehicle',geocoded_column='$geocoded_column',prices='$prices',kw='$kw',
+			$result = mysqli_query($con, "UPDATE Stations SET station_id='$station_id', municipi='$municipi', provincia='$provincia', id='$id', codiprov='$codi',adre_a='$adre_a',promotor_gestor='$promotor_gestor',acces='$acces',tipus_velocitat='$tipus_velocitat',tipus_connexi='$tipus_connexi',latitud='$latitud',longitud='$longitud',designaci_descriptiva='$designaci_descriptiva',ac_dc='$ac_dc',nplaces_estaci='$nplaces_estaci',tipus_vehicle='$tipus_vehicle',geocoded_column='$geocoded_column',prices='$prices',kw='$kw',ide_pdr='$ide_pdr',codi_mun='$codi_mun',
 			 WHERE station_id='$station_id'");
 			//Stations(municipi, provincia, station_id, id, codiprov, adre_a, promotor_gestor, acces, tipus_velocitat, tipus_connexi, latitud, longitud, designaci_descriptiva, ac_dc, nplaces_estaci, tipus_vehicle, geocoded_column, prices, kw) VALUES('$municipi', '$provincia', '$station_id', '$id', '$codiprov', '$adre_a', '$promotor_gestor', '$acces', '$tipus_velocitat', '$tipus_connexi', '$latitud', '$longitud', '$designaci_descriptiva', '$ac_dc', '$nplaces_estaci', '$tipus_vehicle', '$geocoded_column', '$prices', '$kw')")
 			$conn->exec($result);

@@ -26,7 +26,6 @@ $adre_a = $data['adre_a'];
 $ac_dc = $data['ac_dc'];
 $nplaces_estaci = $data['nplaces_estaci'];
 $tipus_vehicle = $data['tipus_vehicle'];
-$geocoded_column = $data['geocoded_column'];
 $prices = $data['prices'];
 $kw = $data['kw'];
 
@@ -167,15 +166,6 @@ if(!empty($data['tipus_vehicle'])){
 	$error = $error . "tipus_vehicle";
 }
 
-if(!empty($data['geocoded_column'])){
-
-	$geocoded_column = $data['geocoded_column'];
-
-}else{
-	
-	$error = $error . "geocoded_column";
-}
-
 if(!empty($data['prices'])){
 
 	$prices = $data['prices'];
@@ -203,11 +193,31 @@ if(!empty($data['adre_a'])){
 	
 	$error = $error . "adre_a";
 }
+
+if(!empty($data['ide_pdr'])){
+
+	$ide_pdr = $data['ide_pdr'];
+
+}else{
+
+	$error = $error . "ide_pdr";
+
+}
+
+if(!empty($data['codi_mun'])){
+
+	$codi_mun = $data['codi_mun'];
+
+}else{
+
+	$error = $error . "codi_mun";
+	
+}
 		if(!empty($error)) {
 			$errorcheck = "Los siguientes campos están vacios";
 			$error = $errorcheck . $error;
 		} else { 
-			$result = mysqli_query($con, "INSERT INTO Stations(municipi, provincia, station_id, id, codiprov, adre_a, promotor_gestor, acces, tipus_velocitat, tipus_connexi, latitud, longitud, designaci_descriptiva, ac_dc, nplaces_estaci, tipus_vehicle, geocoded_column, prices, kw) VALUES('$municipi', '$provincia', '$station_id', '$id', '$codiprov', '$adre_a', '$promotor_gestor', '$acces', '$tipus_velocitat', '$tipus_connexi', '$latitud', '$longitud', '$designaci_descriptiva', '$ac_dc', '$nplaces_estaci', '$tipus_vehicle', '$geocoded_column', '$prices', '$kw')")
+			$result = mysqli_query($con, "INSERT INTO  Stations (station_id, id, promotor_gestor ,  acces ,  tipus_velocitat ,  tipus_connexi ,  designaci_descriptiva ,  ac_dc ,  adre_a ,  provincia ,  codiprov ,  municipi ,  nplaces_estaci ,  tipus_vehicle ,  ide_pdr ,  codi_mun ,  longitud ,  latitud ,  kw, prices)VALUES(null,'$id','$promotor_gestor','$acces','$tipus_velocitat','$tipus_connexi','$designaci_descriptiva','$ac_dc','$adre_a','$provincia','$codiprov','$municipi','$nplaces_estaci','$tipus_vehicle','$ide_pdr','$codi_mun','$longitud','$latitud','$kw','$prices')")
 			or die("registerstations_fail");
 		}
 	//echo "registeruser_ok";
