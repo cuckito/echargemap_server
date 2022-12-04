@@ -14,9 +14,7 @@ if(!empty($data['mail'])){
 	$mail = $data['mail'];
 
 }
-    $result = mysqli_query($con, "UPDATE Users SET password='$password' WHERE mail=$mail")
-	or die("resetPass_fail");
-	echo json_encode(["updateuser" => true, "message" => "resetPass_ok"]);
-
-
+    $result = mysqli_query($con, "UPDATE Users SET password=md5('$password') WHERE mail='$mail'")
+	or die("resetpass_fail");
+	echo json_encode(["resetpass" => true, "message" => "resetpass_ok"]);
 ?>

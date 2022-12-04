@@ -2,9 +2,9 @@
 
 include("connection.php");
 
-$userid = $data['user_id'];
+$mail = $data['mail'];
 
-$result=mysqli_query($con, "DELETE FROM Users WHERE user_id=$userid")
+$result=mysqli_query($con, "DELETE FROM Users WHERE mail='$mail'")
 or die("deluser_fail");
 //echojson_encode(["deluser" => false, "message" => "deluser_fail"]);
 

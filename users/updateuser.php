@@ -1,8 +1,6 @@
 <?php
 include_once("connection.php");
 
-echo $data[0];
-
 $userName = $data['userName'];
 $password = $data['password'];
 $name = $data['name'];
@@ -40,6 +38,8 @@ if(!empty($data['location'])){
 	$location = $data['location'];
 
 }
+
+print_r ($data);
 		/*try{
 			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE username=$userName");
 			$con->exec($result);
@@ -50,12 +50,11 @@ if(!empty($data['location'])){
 		}
 		unset($con);*/
 			
-			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE mail=$mail")
+			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password=md5('$password'),name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE mail='$mail'")
 			or die("updateuser_fail");
 			echo json_encode(["updateuser" => true, "message" => "updateuser_ok"]);
 			//die("updateuser_fail: $result. ". $e->getMessage());
 			//unset($con);
-
 
 
 		

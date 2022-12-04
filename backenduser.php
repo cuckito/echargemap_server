@@ -13,6 +13,10 @@ if($data['method']=='loginuser'){
     include("users/updateuser.php");
 }else if($data['method']=='deluser'){
     include("users/deluser.php");
+}else if($data['method']=='resetpass'){
+    include("users/resetpass.php");
+}else if($data['method']=='readpass'){
+    include("users/readpass.php");
 }else{
     //echo "methoduser_fail";
     echo json_encode(["method" => false, "message" => "methoduser_fail"]);
