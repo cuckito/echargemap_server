@@ -38,8 +38,6 @@ if(!empty($data['location'])){
 	$location = $data['location'];
 
 }
-
-print_r ($data);
 		/*try{
 			$result = mysqli_query($con, "UPDATE Users SET username='$userName',password='$password',name='$name',lastname='$lastname',mail='$mail',location='$location' WHERE username=$userName");
 			$con->exec($result);
