@@ -14,6 +14,8 @@ $json = json_decode($response, true);
 //echo $response;
 //print_r($json);
 //echo $response[0];
+$searchdb="SELECT * FROM Stations";
+$lat=mysqli_query($con,$searchdb);
 foreach ($json as $key => $value) {
         if (array_key_exists('municipi', $value)) {
             $municipi = $value['municipi'];
@@ -115,16 +117,25 @@ foreach ($json as $key => $value) {
         }else{
             $id= "null";
         }
-        
+
+
+        //$found_key = array_search('latitud', array_column($lat, 'fav_color'));
         
    //--------------------------PRUEBA 2---------------------------------
-   $sql="INSERT INTO  Stations (station_id, id, promotor_gestor ,  acces ,  tipus_velocitat ,  tipus_connexi ,  designaci_descriptiva ,  ac_dc ,  adre_a ,  provincia ,  codiprov ,  municipi ,  nplaces_estaci ,  tipus_vehicle ,  ide_pdr ,  codi_mun ,  longitud ,  latitud ,  kw, prices)VALUES(null,'$id','$promotor_gestor','$acces','$tipus_velocitat','$tipus_connexi','$designaci_descriptiva','$ac_dc','$adre_a','$provincia','$codiprov','$municipi','$nplaces_estaci','$tipus_vehicle','$ide_pdr','$codi_mun','$longitud','$latitud','$kw','$prices')";
-    $result=mysqli_query($con,$sql);
-    if($result){
-        echo "Datos insertados correctamente";
+    
+    $var="SELECT * FROM Stations WHERE latitud='$latitud' AND longitud = '$longitud'";
+    //$comp=mysqli_query($con,$var);
+    $comp=mysqli_fetch_assoc(mysqli_query($con,$var));
+    //print_r ($comp);
+    if(isset($comp)){
+        $sql="UPDATE Stations SET station_id=null, id='$id', promotor_gestor='$promotor_gestor', acces='$acces', tipus_velocitat='$tipus_velocitat', tipus_connexi='$tipus_connexi', designaci_descriptiva='$designaci_descriptiva', ac_dc='$ac_dc', adre_a='$adre_a', provincia='$provincia', codiprov='$codiprov', municipi='$municipi', nplaces_estaci='$nplaces_estaci', tipus_vehicle='$tipus_vehicle', ide_pdr='$ide_pdr', codi_mun='$codi_mun', longitud='$longitud', latitud='$latitud', kw='$kw', prices='$prices' WHERE latitud=$latitud AND longitud = $longitud";
+        $result=mysqli_query($con,$sql);
+        echo "No hay mas inserts, está actualizado";
+        //echo $result;
     }else{
-        echo "Error al insertar datos";
+        $sql="INSERT INTO  Stations (station_id, id, promotor_gestor ,  acces ,  tipus_velocitat ,  tipus_connexi ,  designaci_descriptiva ,  ac_dc ,  adre_a ,  provincia ,  codiprov ,  municipi ,  nplaces_estaci ,  tipus_vehicle ,  ide_pdr ,  codi_mun ,  longitud ,  latitud ,  kw, prices)VALUES(null,'$id','$promotor_gestor','$acces','$tipus_velocitat','$tipus_connexi','$designaci_descriptiva','$ac_dc','$adre_a','$provincia','$codiprov','$municipi','$nplaces_estaci','$tipus_vehicle','$ide_pdr','$codi_mun','$longitud','$latitud','$kw','$prices')";
+        $result=mysqli_query($con,$sql);
+        //echo $result;
     }
 }
-//echo "Actualización finalizada";
 ?>
