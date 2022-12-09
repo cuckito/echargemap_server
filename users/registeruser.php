@@ -82,6 +82,5 @@ if(!empty($data['location'])){
 			or die("registeruser_fail");
 			
 		}
-	//echo "registeruser_ok";
 	echo json_encode(["registeruser" => true, "message" => "registeruser_ok","userName"=>$userName,"password"=>$password,"name"=>$name,"lastname"=>$lastname,"mail"=>$mail,"location"=>$location]);
 ?>

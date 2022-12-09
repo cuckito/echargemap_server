@@ -2,21 +2,21 @@ html, body {
     height:100%; 
     margin:0;
     padding:0;
-  }
+}
 
-    body {
-        background: #fff;
+body {
+        background: rgb(255, 255, 255);
         color: #000;
         font-family: 'Open Sans', sans-serif;
         font-size: 16px;
         line-height: 1.5;
-    }
+}
     
 .sidebar {
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #8DD7CF;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -30,12 +30,12 @@ html, body {
 }
 
 .sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #207868;
+  color: rgb(2, 2, 2);
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: #4B5C6B;
   color: white;
 }
 

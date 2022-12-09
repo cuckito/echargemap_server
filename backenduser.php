@@ -2,7 +2,6 @@
 include("connection.php");
 
 $data=json_decode(file_get_contents('php://input'), true);
-//print_r($data);
 if($data['method']=='loginuser'){
     include("users/loginuser.php");
 }else if($data['method']=='registeruser'){
@@ -18,7 +17,6 @@ if($data['method']=='loginuser'){
 }else if($data['method']=='readpass'){
     include("users/readpass.php");
 }else{
-    //echo "methoduser_fail";
     echo json_encode(["method" => false, "message" => "methoduser_fail"]);
 }
 ?>

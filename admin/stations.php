@@ -24,6 +24,7 @@ require_once 'connection.php';
   <a class="active" href="adpanel.php">Admin panel</a>
   <a href="users.php" id="users">Visualizar usuarios</a>
   <a href="stations.php" id="stations">Visualizar estacions</a>
+  <a href="updateapi.php" id="updateapi">Actualizar API</a>
   <a href="logout.php" id="logout">Cerrar sesion</a>
 </div>
 

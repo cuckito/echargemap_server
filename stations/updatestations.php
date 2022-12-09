@@ -58,6 +58,8 @@ if(!empty($data['geocoded_column'])){
 if(!empty($data['prices'])){
 	$prices = $data['prices'];
 }
+//if(!empty($data['kw'])) $kw = $data['kw']; CODIGO LIMPIO
+
 if(!empty($data['kw'])){
 	$kw = $data['kw'];
 }
@@ -73,7 +75,7 @@ if(!empty($data['codi_mun'])){
 			 WHERE station_id='$station_id'");
 			//Stations(municipi, provincia, station_id, id, codiprov, adre_a, promotor_gestor, acces, tipus_velocitat, tipus_connexi, latitud, longitud, designaci_descriptiva, ac_dc, nplaces_estaci, tipus_vehicle, geocoded_column, prices, kw) VALUES('$municipi', '$provincia', '$station_id', '$id', '$codiprov', '$adre_a', '$promotor_gestor', '$acces', '$tipus_velocitat', '$tipus_connexi', '$latitud', '$longitud', '$designaci_descriptiva', '$ac_dc', '$nplaces_estaci', '$tipus_vehicle', '$geocoded_column', '$prices', '$kw')")
 			$conn->exec($result);
-			//echo "updateuser_ok";
+
 			echo json_encode(["updatestations" => true, "message" => "updatestations_ok"]);
 		}catch (Exception $e){
 			die("updatestations_fail: $result. ". $e->getMessage());

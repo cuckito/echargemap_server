@@ -44,16 +44,19 @@
                     }
                 }
             }else{
-                echo "este user no está";
+                echo "Usuario no encontrado";
             }
         }else{
-            echo "user not found";
+            echo "Usuario no encontrado";
         }
     }
         
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
 <body>
         <form action="index.php" method="post">
             <br>Login:
