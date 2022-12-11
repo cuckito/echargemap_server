@@ -2,12 +2,6 @@
 session_start();
 
 require_once 'connection.php';
-#probar conexion a la base de datos
-/*if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-} else {
-    echo "Connected successfully";
-}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,16 +13,15 @@ require_once 'connection.php';
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-<!-- sidebar -->
+
 <div class="sidebar">
-  <a class="active" href="adpanel.php">Admin panel</a>
+<a class="active" href="adpanel.php"><b>Admin panel</b></a>
   <a href="users.php" id="users">Visualizar usuarios</a>
   <a href="stations.php" id="stations">Visualizar estacions</a>
   <a href="updateapi.php" id="updateapi">Actualizar API</a>
   <a href="logout.php" id="logout">Cerrar sesion</a>
 </div>
 
-<!-- contenido -->
 <div class="content">
   <h2>Visualizar usuarios</h2>
   <p>Introduce el username del usuario que quieres borrar</p>
@@ -55,8 +48,6 @@ require_once 'connection.php';
          $sql = "SELECT * FROM Users";
          $select = mysqli_query($con, $sql);
          $num_rows = mysqli_num_rows($select);
-         //echo "Number of rows : ";
-         //echo $num_rows;
 
          echo "<table>
          <tr>

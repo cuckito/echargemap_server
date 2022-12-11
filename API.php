@@ -4,16 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//$json=file_get_contents('https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json');
-
 header('Access-Control-Allow-Origin: *');
 $url = "https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json";
 $response = file_get_contents($url);
-//echo $response;
+
 $json = json_decode($response, true);
-//echo $response;
-//print_r($json);
-//echo $response[0];
 
 foreach ($json as $key => $value) {
         if (array_key_exists('municipi', $value)) {
@@ -119,7 +114,7 @@ foreach ($json as $key => $value) {
         }else{
             $id= "null";
         }
-        //PERMITIR '
+        //PERMITIR COMILLAS '
         $promotor_gestor = $con->real_escape_string($promotor_gestor);
         $acces = $con->real_escape_string($acces);
         $tipus_velocitat = $con->real_escape_string($tipus_velocitat);
@@ -136,7 +131,6 @@ foreach ($json as $key => $value) {
         $municipi = $con ->real_escape_string($municipi);
         $codiprov = $con->real_escape_string($codiprov);
         $prices = $con->real_escape_string($prices);
-   //--------------------------PRUEBA 2---------------------------------
     
     $var="SELECT * FROM Stations WHERE latitud='$latitud' AND longitud = '$longitud'";
     $comp=mysqli_fetch_assoc(mysqli_query($con,$var));

@@ -1,13 +1,6 @@
-<?php session_start(); ?>
-
-<?php 
- 
- /*if(!isset($_SESSION['valid'])) {
-	header('Location: login.php');
-	}*/
-
-?> 
 <?php
+session_start(); 
+
 include_once("connection.php");
 
 $username = $data['userName'];

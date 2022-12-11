@@ -2,12 +2,6 @@
 session_start();
 
 require_once 'connection.php';
-#probar conexion a la base de datos
-/*if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-} else {
-    echo "Connected successfully";
-}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +14,7 @@ require_once 'connection.php';
 </head>
 <body>
 <div class="sidebar">
-  <a class="active" href="adpanel.php">Admin panel</a>
+<a class="active" href="adpanel.php"><b>Admin panel</b></a>
   <a href="users.php" id="users">Visualizar usuarios</a>
   <a href="stations.php" id="stations">Visualizar estacions</a>
   <a href="updateapi.php" id="updateapi">Actualizar API</a>
@@ -29,7 +23,7 @@ require_once 'connection.php';
 
 <div class="content">
     <h2>Actualizar API</h2>
-    <p>En esta pagina podras actualizar la API cada cierto tiempo</p>
+    <p>En esta pagina podras actualizar la API</p>
     <form name='form' method="post">
     <input type='submit' name='updateapi' id='' value='Actualizar API'><br>
 <!--<script>
@@ -44,16 +38,12 @@ require_once 'connection.php';
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
 
-        //$json=file_get_contents('https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json');
-
         header('Access-Control-Allow-Origin: *');
         $url = "https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json";
         $response = file_get_contents($url);
-        //echo $response;
+;
         $json = json_decode($response, true);
-        //echo $response;
-        //print_r($json);
-        //echo $response[0];
+
 
         foreach ($json as $key => $value) {
                 if (array_key_exists('municipi', $value)) {
@@ -159,7 +149,7 @@ require_once 'connection.php';
                 }else{
                     $id= "null";
                 }
-                //PERMITIR '
+                //PERMITIR COMILLAS '
                 $promotor_gestor = $con->real_escape_string($promotor_gestor);
                 $acces = $con->real_escape_string($acces);
                 $tipus_velocitat = $con->real_escape_string($tipus_velocitat);
@@ -190,16 +180,6 @@ require_once 'connection.php';
             }
         }
     }
-    /*$sql1="INSERT INTO Provincia (cod_prov, provincia ) VALUES (null,'$provincia')";
-              $result1=mysqli_query($con,$sql1);
-              //echo $result1;
-              $sql2="SELECT DISTINCT cod_prov FROM Provincia WHERE provincia='$provincia'";
-              $mun="INSERT INTO Municipi (cod_mun, municipi, cod_prov) VALUES (null, '$municipi','$sql2')";
-              $result3=mysqli_query($con,$mun);
-              $cod_mun="SELECT DISTINCT cod_mun FROM Municipi";
-              $sql1="INSERT INTO  Stations (id, promotor_gestor ,  acces ,  tipus_velocitat ,  tipus_connexi ,  designaci_descriptiva ,  ac_dc ,  adre_a ,  provincia ,  codiprov ,  municipi ,  nplaces_estaci ,  tipus_vehicle ,  ide_pdr ,  codi_mun ,  longitud ,  latitud ,  kw, prices)VALUES(null,'$promotor_gestor','$acces','$tipus_velocitat','$tipus_connexi','$designaci_descriptiva','$ac_dc','$adre_a','$codiprov','$nplaces_estaci','$tipus_vehicle','$ide_pdr','$codi_mun','$longitud','$latitud','$kw','$prices')";
-              $result=mysqli_query($con,$sql1);
-              //echo $result;*/
     ?>
 </div>
 </body>

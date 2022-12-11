@@ -10,26 +10,16 @@
     
         $query = "SELECT * FROM Users WHERE username = '$user' AND password = '$password' LIMIT 1";
 
-        //$result = $con->query($query);
-
-        //print_r($result);
-        //echo $query;
         if($result = $con->query($query) ){
             if ($result->num_rows > 0) {
                 
-                while ($row = $result->fetch_array()) { //LOOP EN BUSCA DE LAS FILAS
+                while ($row = $result->fetch_array()) {
                     
                     session_regenerate_id();
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['loggedin'] = TRUE;
                     $_SESSION['user_id'] = $row['user_id'];
-
-                    /*echo $_SESSION['rol'];
-                    echo $_SESSION['user'];
-                    echo $_SESSION['loggedin'];*/
-
-                    //header("location: home.php");
                     
                     if (!isset($_SESSION['loggedin'])) {
                         header('Location: index.php');
@@ -59,10 +49,10 @@
 </head>
 <body>
         <form action="index.php" method="post">
-            <br>Login:
+            <br>Admin user:
             <input type='text' name='username'/>
             
-            <br>Password:
+            <br>Password user:
             <input type='password' name='password' />
 
             <br>

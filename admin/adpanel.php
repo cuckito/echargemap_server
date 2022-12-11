@@ -2,12 +2,6 @@
 session_start();
 
 require_once 'connection.php';
-#probar conexion a la base de datos
-/*if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-} else {
-    echo "Connected successfully";
-}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +14,7 @@ require_once 'connection.php';
 </head>
 <body>
 <div class="sidebar">
-  <a class="active" href="adpanel.php">Admin panel</a>
+<a class="active" href="adpanel.php"><b>Admin panel</b></a>
   <a href="users.php" id="users">Visualizar usuarios</a>
   <a href="stations.php" id="stations">Visualizar estacions</a>
   <a href="updateapi.php" id="updateapi">Actualizar API</a>

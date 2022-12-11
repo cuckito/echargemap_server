@@ -9,5 +9,4 @@ while($array = mysqli_fetch_assoc($result)) {
     $rows[] = $array;
 }
 echo json_encode(["readstationsprovincia" => true, "message" => "readstationsprovincia_ok",$rows]);
-//$result = mysqli_query($con, "SELECT * FROM Users WHERE username=$username".$data['userName']);
 ?>
