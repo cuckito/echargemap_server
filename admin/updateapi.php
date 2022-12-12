@@ -39,6 +39,9 @@ require_once 'connection.php';
         error_reporting(E_ALL);
 
         header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+        header("Allow: GET, POST, OPTIONS, PUT, DELETE");
         $url = "https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json";
         $response = file_get_contents($url);
 ;
