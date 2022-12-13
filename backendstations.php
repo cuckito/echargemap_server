@@ -7,8 +7,8 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 $data=json_decode(file_get_contents('php://input'), true);
-if($data['method']=='registerstations'){
-    include("stations/registerstations.php");
+if($data['method']=='readstations'){
+    include("stations/readstations.php");
 }else if($data['method']=='readstationsmunicipi'){
     include("stations/readstationsmunicipi.php");
 }else if($data['method']=='readstationsprovincia'){
