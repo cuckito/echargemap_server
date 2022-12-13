@@ -17,13 +17,6 @@ if($data['method']=='readstations'){
     include("stations/readmunicipis.php");
 }else if($data['method']=='readprovincias'){
     include("stations/readprovincias.php");
-/*}else if($data['method']=='updatestations'){
-    include("stations/updatestations.php");
-}else if($data['method']=='delstations'){
-    include("stations/delstations.php");
-else if($data['method']=='loginstations'){
-        include("stations/loginstations.php");
-}*/
 }else{
     echo json_encode(["method" => false, "message" => "methodstations_fail"]);
 }
