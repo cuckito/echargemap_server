@@ -2,7 +2,7 @@
 
 $host = "localhost"; //IP BASE DE DATOS
 $root = "admin_web"; //USUARIO BASE DE DATOS
-$password = "@AP3btaN]ecCEGj*"; //CONTRASEÑA BASE DE DATOS
+$password = "PASSWORD*"; //CONTRASEÑA BASE DE DATOS
 $db = "echargemap"; //NOMBRE DE LA BASE DE DATOS
 
 $con = new mysqli($host, $root, $password, $db);
